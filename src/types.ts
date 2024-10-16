@@ -27,7 +27,6 @@ export interface AboutMeType {
 export interface SocialType {
   id: number;
   name: string;
-  p;
   link: string;
   icon: string;
 }

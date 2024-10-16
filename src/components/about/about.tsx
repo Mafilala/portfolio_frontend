@@ -4,8 +4,7 @@ import React, { useEffect } from "react";
 import { AboutMeType } from "@/types";
 import { useGetAboutMeQuery } from "@/services/api";
 
-const AboutCard = (prop: AboutMeType) => {
-  const { id, image_url, intro, experience } = prop;
+const AboutCard = ({ image_url, intro, experience }: AboutMeType) => {
   return (
     <>
       <div className="border border-red-600 m-auto rounded-lg overflow-hidden">
@@ -33,7 +32,7 @@ const About = ({ setObserved }: { setObserved: (par: string) => void }) => {
     threshold: 0.6,
   });
   const {
-    data: about = [],
+    data: about,
     isLoading,
     isSuccess,
     isError,
@@ -46,6 +45,7 @@ const About = ({ setObserved }: { setObserved: (par: string) => void }) => {
     }
     console.log(onScreen);
   }, [ref, onScreen]);
+
   return (
     <div
       id="about"
@@ -55,14 +55,16 @@ const About = ({ setObserved }: { setObserved: (par: string) => void }) => {
       {isLoading ? (
         <div>Loading...</div>
       ) : isError ? (
-        <p>error</p>
-      ) : (
+        <p>Error: unable to fetch</p>
+      ) : isSuccess && about ? ( // Check if 'about' exists
         <AboutCard
           id={about.id}
           intro={about.intro}
           experience={about.experience}
           image_url={about.image_url}
-        /> //+
+        />
+      ) : (
+        <p>No data available.</p> // Fallback for when 'about' is not available
       )}
     </div>
   );
