@@ -1,4 +1,5 @@
-// frontend/services/api.ts
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import {
   SkillCardType,
@@ -10,7 +11,7 @@ import {
 
 export const apiSlice = createApi({
   reducerPath: "api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:8000/" }),
+  baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getSkills: builder.query<SkillCardType[], void>({
       query: () => "skills/",
