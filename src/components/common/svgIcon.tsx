@@ -1,4 +1,12 @@
-const SvgIcon = ({ icon, width, height }) => (
+const SvgIcon = ({
+  icon,
+  width,
+  height,
+}: {
+  icon: string;
+  width: string;
+  height: string;
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512"
