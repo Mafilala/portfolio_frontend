@@ -4,15 +4,20 @@ import useIntersectionObserver from "@/hooks/intersectionObserverHook";
 import { useGetProjectsQuery } from "@/services/api";
 import { ProjectType } from "@/types";
 const Projects = ({ setObserved }: { setObserved: (par: string) => void }) => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollLeft = () => {
+const scrollLeft = () => {
+  if (containerRef.current) {
     containerRef.current.scrollBy({ left: -300, behavior: "smooth" }); // Adjust the scroll amount as needed
-  };
+  }
+};
 
-  const scrollRight = () => {
+const scrollRight = () => {
+  if (containerRef.current) {
     containerRef.current.scrollBy({ left: 300, behavior: "smooth" }); // Adjust the scroll amount as needed
-  };
+  }
+};
+
 
   const ref = React.useRef(null);
   const onScreen = useIntersectionObserver(ref, {

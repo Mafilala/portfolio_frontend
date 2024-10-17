@@ -13,14 +13,12 @@ const Footer = () => {
     isError,
     error,
   } = useGetSocialQuery();
-  if (isSuccess) {
-    console.log(socials[0].icon);
-  }
+
   return (
     <div className="w-full flex flex-col gap-3 px-4 bg-[#FDF8F8]">
       <nav className=" flex justify-between items-center  w-full ">
         <Image src="/logo.png" width={70} height={70} alt="logo" />
-        <Navlist observed={true} />
+        <Navlist observed="" />
         <div className="flex justify-between">
           {isError ? (
             <p>error</p>

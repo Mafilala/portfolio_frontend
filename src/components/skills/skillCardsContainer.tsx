@@ -4,15 +4,20 @@ import { useGetSkillsQuery } from "../../services/api";
 import { SkillCardType } from "@/types";
 
 const SkillCardsContainer = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollLeft = () => {
-    containerRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  };
+const scrollLeft = () => {
+  if (containerRef.current) {
+    containerRef.current.scrollBy({ left: -300, behavior: "smooth" }); // Adjust the scroll amount as needed
+  }
+};
 
-  const scrollRight = () => {
-    containerRef.current.scrollBy({ left: 300, behavior: "smooth" });
-  };
+const scrollRight = () => {
+  if (containerRef.current) {
+    containerRef.current.scrollBy({ left: 300, behavior: "smooth" }); // Adjust the scroll amount as needed
+  }
+};
+
   const {
     data: skills = [],
     isLoading,

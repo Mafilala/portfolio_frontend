@@ -1,7 +1,7 @@
 export interface ButtonType {
   type: "contained" | "outlined";
   label: string;
-  onClick?: (e: React.FormEvent<HTMLButtonElement>) => Promise<void>;
+  onClick?: (e: any) => void; 
   isSubmit?: boolean;
   className?: string; // Optional className prop
 }

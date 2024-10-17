@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Navlist = ({ observed }: { observed: boolean }) => {
+const Navlist = ({ observed }: { observed: string }) => {
   const li = [
     { label: "Home", id: "home" },
     { label: "Skills", id: "skills" },
